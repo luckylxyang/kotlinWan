@@ -1,24 +1,25 @@
 package com.lxy.kotlinwan.login.data
 
 import com.lxy.kotlinwan.login.data.model.LoggedInUser
+import com.lxy.kotlinwan.login.data.model.UserEntiry
+import com.lxy.kotlinwan.network.Resource
+import com.lxy.kotlinwan.network.RetrofitManager
 import java.io.IOException
+import java.lang.IllegalArgumentException
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
 class LoginDataSource {
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
-        try {
-            // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
-            return Result.Success(fakeUser)
-        } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
+    suspend fun login(username: String, password: String): Result<UserEntiry> {
+        val resource = RetrofitManager.getApiService().login(username, password)
+        if (resource.errorCode == 0){
+            return Result.Success(resource.data)
         }
+        return Result.Error(IllegalArgumentException(resource.errorMsg))
     }
 
     fun logout() {
-        // TODO: revoke authentication
     }
 }

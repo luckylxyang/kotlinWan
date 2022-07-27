@@ -1,4 +1,6 @@
-package com.lxy.kotlinwan.network
+package com.lxy.kotlinwan.entity
+
+import com.lxy.kotlinwan.entity.Article
 
 data class Data(
     val curPage: Int,

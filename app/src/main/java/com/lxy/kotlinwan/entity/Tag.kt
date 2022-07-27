@@ -1,4 +1,4 @@
-package com.lxy.kotlinwan.network
+package com.lxy.kotlinwan.entity
 
 data class Tag(
     val name: String,

@@ -1,4 +1,4 @@
-package com.lxy.kotlinwan.network
+package com.lxy.kotlinwan.entity
 
 data class Article(
     val apkLink: String,
