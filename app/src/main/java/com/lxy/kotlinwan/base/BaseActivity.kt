@@ -1,6 +1,9 @@
 package com.lxy.kotlinwan.base
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 
-class BaseActivity : FragmentActivity() {
+open class BaseActivity : AppCompatActivity() {
+
+
 }
