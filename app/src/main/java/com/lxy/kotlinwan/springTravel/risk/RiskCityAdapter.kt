@@ -17,7 +17,7 @@ class RiskCityAdapter() : BaseAdapter<RiskArea>() {
     }
 
     override fun convert(viewHolder: ViewBindHolder, t: RiskArea, position: Int) {
-        val holder = viewHolder as ItemRiskCityBinding
+        val holder = viewHolder.binding as ItemRiskCityBinding
         holder.itemTitle.text = t.area_name
     }
 }
